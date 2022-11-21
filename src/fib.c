@@ -3,19 +3,33 @@
  */
 #include "fib.h"
 
-#include <assert.h>		/* assert */
-#include <stdio.h>		/* printf */
+#include <assert.h> /* assert */
+#include <stdio.h>  /* printf */
 
+/* Fibonacci function definition */
 
-// fib 1 = 1
-
-int fib(int n, int p, int pp) {
-    // basecase is where n==1.
-    if (n == 1) {
-        return p;
-    } else {
-       
-        return fib(n - 1, pp, p + pp);
+int fib_tail(int n, int p, int pp)
+{
+    if (n == -1 || n == 0)
+    {
+        return 1;
     }
-    return 0;
+
+    /*Pre-condition*/
+    assert(n > 0);
+
+    /*Base case*/
+    if (n == 1) 
+    {
+        return p + pp;
+    }
+    else
+    {
+        return fib_tail(n - 1, p + pp, p); // Recusrion
+    }
+}
+
+int fib(int n)
+{
+    return fib_tail(n - 2, 1, 1); 
 }
