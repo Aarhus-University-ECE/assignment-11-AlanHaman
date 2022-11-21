@@ -42,7 +42,7 @@ int sumwhile(int n)
   
   int sum = 0;
 
-  /*Loop that runs while n is not 0
+  //Loop that runs while n is not 0
   while (n != 0)
   {
     sum += n; 
